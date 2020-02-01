@@ -30,16 +30,24 @@ $if(verbatim-color)$
 \renewcommand{\texttt}[1]{\oldTexttt{\textbf{\textcolor{$verbatim-color$}{#1}}}}
 $endif$
 
+\usepackage{lmodern}
+
 % dw: default font
 % Default: default sans-serif font
 % Example usage: -V fontfamily=cmbright
 $if(fontfamily)$
 \usepackage{$fontfamily$}
 $else$
- \usepackage{lmodern}
  \renewcommand*\familydefault{\sfdefault}
+$endif$
+
+% dw: font in math sections
+% Default: no (use serif font)
+% Usage example: -V math-sans-serif (use sans-serif font)
+$if(math-sans-serif)$
  \usepackage{sfmath}
 $endif$
+
 
 % dw: command for typesetting a unit in math mode (e.g. "\[ 25 \unit{dBm} \]")
 \newcommand{\unit}[1]{\;\text{#1}}
